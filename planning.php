@@ -3,56 +3,56 @@
 session_start();
 
 // Define destinations data for the planning page
-$destinationsData = [
-    [
-        'id' => 1,
-        'name' => 'Kathmandu',
-        'description' => 'Explore the ancient temples and vibrant culture of Nepal\'s capital city',
-        'image' => 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=300&auto=format&fit=crop',
-        'days_recommended' => '2-3',
-        'activities' => ['Cultural Tours', 'Temple Visits', 'Shopping', 'Food Tours']
-    ],
-    [
-        'id' => 2,
-        'name' => 'Pokhara',
-        'description' => 'Experience the serene lakes and stunning mountain views of this beautiful city',
-        'image' => 'https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?q=80&w=300&auto=format&fit=crop',
-        'days_recommended' => '2-4',
-        'activities' => ['Boating', 'Paragliding', 'Hiking', 'Relaxation']
-    ],
-    [
-        'id' => 3,
-        'name' => 'Chitwan National Park',
-        'description' => 'Encounter wildlife including rhinos and tigers in this UNESCO World Heritage site',
-        'image' => 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=300&auto=format&fit=crop',
-        'days_recommended' => '2-3',
-        'activities' => ['Safari', 'Canoeing', 'Bird Watching', 'Cultural Programs']
-    ],
-    [
-        'id' => 4,
-        'name' => 'Everest Base Camp',
-        'description' => 'Trek to the base of the world\'s highest mountain for breathtaking views',
-        'image' => 'https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=300&auto=format&fit=crop',
-        'days_recommended' => '12-16',
-        'activities' => ['Trekking', 'Photography', 'Cultural Experiences', 'Mountain Views']
-    ],
-    [
-        'id' => 5,
-        'name' => 'Annapurna Circuit',
-        'description' => 'Experience one of the world\'s most famous trekking routes with diverse landscapes',
-        'image' => 'https://images.unsplash.com/photo-1626516738029-0e1f3b2d2e0e?q=80&w=300&auto=format&fit=crop',
-        'days_recommended' => '10-18',
-        'activities' => ['Trekking', 'Hot Springs', 'Mountain Views', 'Cultural Experiences']
-    ],
-    [
-        'id' => 6,
-        'name' => 'Lumbini',
-        'description' => 'Visit the birthplace of Buddha and explore its peaceful gardens and monasteries',
-        'image' => 'https://images.unsplash.com/photo-1609942072337-c3370e820998?q=80&w=300&auto=format&fit=crop',
-        'days_recommended' => '1-2',
-        'activities' => ['Pilgrimage', 'Meditation', 'Historical Sites', 'Cultural Tours']
-    ],
-];
+// $destinationsData = [
+//     [
+//         'id' => 1,
+//         'name' => 'Kathmandu',
+//         'description' => 'Explore the ancient temples and vibrant culture of Nepal\'s capital city',
+//         'image' => 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?q=80&w=300&auto=format&fit=crop',
+//         'days_recommended' => '2-3',
+//         'activities' => ['Cultural Tours', 'Temple Visits', 'Shopping', 'Food Tours']
+//     ],
+//     [
+//         'id' => 2,
+//         'name' => 'Pokhara',
+//         'description' => 'Experience the serene lakes and stunning mountain views of this beautiful city',
+//         'image' => 'https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?q=80&w=300&auto=format&fit=crop',
+//         'days_recommended' => '2-4',
+//         'activities' => ['Boating', 'Paragliding', 'Hiking', 'Relaxation']
+//     ],
+//     [
+//         'id' => 3,
+//         'name' => 'Chitwan National Park',
+//         'description' => 'Encounter wildlife including rhinos and tigers in this UNESCO World Heritage site',
+//         'image' => 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=300&auto=format&fit=crop',
+//         'days_recommended' => '2-3',
+//         'activities' => ['Safari', 'Canoeing', 'Bird Watching', 'Cultural Programs']
+//     ],
+//     [
+//         'id' => 4,
+//         'name' => 'Everest Base Camp',
+//         'description' => 'Trek to the base of the world\'s highest mountain for breathtaking views',
+//         'image' => 'https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=300&auto=format&fit=crop',
+//         'days_recommended' => '12-16',
+//         'activities' => ['Trekking', 'Photography', 'Cultural Experiences', 'Mountain Views']
+//     ],
+//     [
+//         'id' => 5,
+//         'name' => 'Annapurna Circuit',
+//         'description' => 'Experience one of the world\'s most famous trekking routes with diverse landscapes',
+//         'image' => 'https://images.unsplash.com/photo-1626516738029-0e1f3b2d2e0e?q=80&w=300&auto=format&fit=crop',
+//         'days_recommended' => '10-18',
+//         'activities' => ['Trekking', 'Hot Springs', 'Mountain Views', 'Cultural Experiences']
+//     ],
+//     [
+//         'id' => 6,
+//         'name' => 'Lumbini',
+//         'description' => 'Visit the birthplace of Buddha and explore its peaceful gardens and monasteries',
+//         'image' => 'https://images.unsplash.com/photo-1609942072337-c3370e820998?q=80&w=300&auto=format&fit=crop',
+//         'days_recommended' => '1-2',
+//         'activities' => ['Pilgrimage', 'Meditation', 'Historical Sites', 'Cultural Tours']
+//     ],
+// ];
 
 // Define activities data
 $activitiesData = [
@@ -761,7 +761,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                                     </div>
                                 </label>
                                 <label class="relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50">
-                                    <input type="radio" name="duration" value="8-14 days" class="absolute opacity-0" checked>
+                                    <input type="radio" name="duration" value="8-14 days" class="absolute opacity-0" >
                                     <div class="flex flex-col items-center">
                                         <span class="text-lg font-medium">8-14 days</span>
                                         <span class="text-sm text-gray-500">Extended trip</span>
@@ -804,7 +804,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                                     </div>
                                 </label>
                                 <label class="relative border rounded-lg p-4 cursor-pointer hover:bg-gray-50">
-                                    <input type="radio" name="budget" value="Standard" class="absolute opacity-0" checked>
+                                    <input type="radio" name="budget" value="Standard" class="absolute opacity-0" >
                                     <div class="flex flex-col items-center">
                                         <span class="text-lg font-medium">Standard</span>
                                         <span class="text-sm text-gray-500">$50-100/day</span>
@@ -849,7 +849,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                             </div>
 
                             <!-- Popular Destinations in Nepal -->
-                            <p class="text-sm text-gray-500 mb-4">Or choose from popular destinations in Nepal:</p>
+                            <!-- <p class="text-sm text-gray-500 mb-4">Or choose from popular destinations in Nepal:</p> -->
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <?php foreach ($destinationsData as $destination): ?>
                                     <label class="relative border rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
@@ -918,92 +918,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                 </div>
             </section>
         <?php endif; ?>
-
-        <!-- Travel Tips Section -->
-        <section class="bg-slate-50 py-16">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-                <div class="flex flex-col items-center text-center mb-12">
-                    <h2 class="text-3xl font-bold tracking-tight">Planning Tips for Nepal</h2>
-                    <p class="mt-4 max-w-2xl text-gray-600">
-                        Make the most of your Nepal adventure with these helpful planning tips
-                    </p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 mr-3">
-                                <i class="fa-solid fa-calendar-days"></i>
-                            </div>
-                            <h3 class="text-lg font-medium">Best Time to Visit</h3>
-                        </div>
-                        <p class="text-gray-600">
-                            The best seasons to visit Nepal are autumn (September to November) and spring (March to May)
-                            when the weather is pleasant and skies are clear, offering excellent mountain views.
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 mr-3">
-                                <i class="fa-solid fa-passport"></i>
-                            </div>
-                            <h3 class="text-lg font-medium">Visa Requirements</h3>
-                        </div>
-                        <p class="text-gray-600">
-                            Most visitors can obtain a visa on arrival at Kathmandu airport. Bring a passport-sized photo
-                            and USD for payment. Visas are available for 15, 30, or 90 days.
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 mr-3">
-                                <i class="fa-solid fa-suitcase"></i>
-                            </div>
-                            <h3 class="text-lg font-medium">Packing Essentials</h3>
-                        </div>
-                        <p class="text-gray-600">
-                            Pack layers for varying temperatures, comfortable walking shoes, a rain jacket, sunscreen,
-                            and any necessary medications. For trekking, specialized gear may be required.
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 mr-3">
-                                <i class="fa-solid fa-money-bill-wave"></i>
-                            </div>
-                            <h3 class="text-lg font-medium">Currency & Budget</h3>
-                        </div>
-                        <p class="text-gray-600">
-                            The local currency is Nepalese Rupee (NPR). ATMs are available in major cities, but carry some
-                            cash for remote areas. Budget travelers can manage on $30-50 per day.
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 mr-3">
-                                <i class="fa-solid fa-route"></i>
-                            </div>
-                            <h3 class="text-lg font-medium">Transportation</h3>
-                        </div>
-                        <p class="text-gray-600">
-                            Within cities, taxis and rickshaws are common. For longer distances, tourist buses, domestic
-                            flights, or private vehicles with drivers are recommended options.
-                        </p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow">
-                        <div class="flex items-center mb-4">
-                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-rose-100 text-rose-600 mr-3">
-                                <i class="fa-solid fa-wifi"></i>
-                            </div>
-                            <h3 class="text-lg font-medium">Connectivity</h3>
-                        </div>
-                        <p class="text-gray-600">
-                            Wi-Fi is available in most hotels and cafes in urban areas. Consider buying a local SIM card
-                            for data and calls. Connectivity may be limited in remote trekking areas.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -1214,7 +1128,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             // Initialize the autocomplete with Nepal restriction
             const autocomplete = new google.maps.places.Autocomplete(input, {
                 types: ['(cities)'],
-                componentRestrictions: { country: 'np' }, // Restrict to Nepal only
+                componentRestrictions: {
+                    country: 'np'
+                }, // Restrict to Nepal only
                 bounds: new google.maps.LatLngBounds(
                     new google.maps.LatLng(26.3478, 80.0982), // SW corner of Nepal
                     new google.maps.LatLng(30.4227, 88.1748) // NE corner of Nepal
