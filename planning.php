@@ -844,7 +844,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                                         <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
                                     </div>
                                 </div>
-                                <div id="selected-places" class="mt-4 flex flex-wrap gap-2"></div>
                                 <input type="hidden" name="custom_destinations" id="custom-destinations-input" value="">
                             </div>
 
@@ -1119,11 +1118,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             }
 
             const input = document.getElementById('places-search');
-            const selectedPlacesContainer = document.getElementById('selected-places');
             const hiddenInput = document.getElementById('custom-destinations-input');
 
-            // Store selected places
-            const selectedPlaces = [];
+            // Store selected place (only one at a time)
+            let selectedPlace = null;
+
+            // Prevent form submission on Enter key
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
 
             // Initialize the autocomplete with Nepal restriction
             const autocomplete = new google.maps.places.Autocomplete(input, {
@@ -1147,8 +1153,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                     return;
                 }
 
-                // Add the place to our selected places
-                const placeData = {
+                // Update the selected place
+                selectedPlace = {
                     id: place.place_id,
                     name: place.name,
                     address: place.formatted_address,
@@ -1158,49 +1164,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                     }
                 };
 
-                // Check if this place is already selected
-                if (selectedPlaces.some(p => p.id === placeData.id)) {
-                    input.value = '';
-                    return;
-                }
-
-                selectedPlaces.push(placeData);
-                updateSelectedPlacesUI();
+                // Update the input field with the selected place name
+                input.value = selectedPlace.name;
                 updateHiddenInput();
-
-                // Clear the input
-                input.value = '';
             });
 
-            // Function to update the UI with selected places
-            function updateSelectedPlacesUI() {
-                selectedPlacesContainer.innerHTML = '';
-
-                selectedPlaces.forEach((place, index) => {
-                    const placeTag = document.createElement('div');
-                    placeTag.className = 'bg-rose-100 text-rose-800 text-sm rounded-full px-3 py-1 flex items-center';
-                    placeTag.innerHTML = `
-                        ${place.name}
-                        <button type="button" class="ml-2 text-rose-600 hover:text-rose-800" data-index="${index}">
-                            <i class="fa-solid fa-times"></i>
-                        </button>
-                    `;
-
-                    // Add remove button functionality
-                    placeTag.querySelector('button').addEventListener('click', function() {
-                        const idx = parseInt(this.getAttribute('data-index'));
-                        selectedPlaces.splice(idx, 1);
-                        updateSelectedPlacesUI();
-                        updateHiddenInput();
-                    });
-
-                    selectedPlacesContainer.appendChild(placeTag);
-                });
-            }
+            // Add clear button functionality
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && input.value === '') {
+                    selectedPlace = null;
+                    updateHiddenInput();
+                }
+            });
 
             // Function to update the hidden input with JSON data
             function updateHiddenInput() {
-                hiddenInput.value = JSON.stringify(selectedPlaces);
+                hiddenInput.value = selectedPlace ? JSON.stringify([selectedPlace]) : '';
             }
         }
 
